@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -14,13 +14,13 @@ export default function Navbar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-            <NavLink to="/" end className="nav-link" aria-current="page">
+            <NavLink end to="/" className="nav-link">
               Home
             </NavLink>
-            <NavLink to="/products" className="nav-link">
+            <NavLink to="products" className="nav-link">
               Products
             </NavLink>
-            <NavLink to="/login" className="nav-link">
+            <NavLink to="login" className="nav-link">
               Login
             </NavLink>
           </div>
