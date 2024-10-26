@@ -1,5 +1,9 @@
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../utils/auth";
+
 export default function Navbar() {
+  const auth = useAuth();
+  console.log(auth);
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
@@ -20,8 +24,14 @@ export default function Navbar() {
             <NavLink to="products" className="nav-link">
               Products
             </NavLink>
-            <NavLink to="login" className="nav-link">
-              Login
+
+            {auth?.user && (
+              <NavLink to="profile" className="nav-link">
+                Profile
+              </NavLink>
+            )}
+            <NavLink to={auth?.user ? "logout" : "login"} className="nav-link">
+              {auth?.user ? "Logout" : "Login"}
             </NavLink>
           </div>
         </div>

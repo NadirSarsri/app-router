@@ -1,4 +1,5 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+
 const products = [
   { id: 1, name: "PC" },
   { id: 2, name: "Graphic Adapter" },
@@ -6,12 +7,18 @@ const products = [
   { id: 4, name: "Tablet" },
 ];
 export default function Products() {
+  const navigate = useNavigate();
+
   return (
     <ul className="list-group">
       {/* <Outlet /> */}
       {products.map((product) => (
-        <li className="list-group-item" key={product.id}>
-          <Link to={`${product.id}`}>{product.name}</Link>
+        <li
+          onClick={() => navigate(`${product.id}`)}
+          className="list-group-item"
+          key={product.id}
+        >
+          {product.name}
         </li>
       ))}
     </ul>
