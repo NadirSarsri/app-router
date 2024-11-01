@@ -25,13 +25,22 @@ export default function Navbar() {
               Products
             </NavLink>
 
-            {auth?.user && (
+            {(localStorage.getItem("Username") || auth?.user) && (
               <NavLink to="profile" className="nav-link">
                 Profile
               </NavLink>
             )}
-            <NavLink to={auth?.user ? "logout" : "login"} className="nav-link">
-              {auth?.user ? "Logout" : "Login"}
+            <NavLink
+              to={
+                localStorage.getItem("Username") || auth?.user
+                  ? "logout"
+                  : "login"
+              }
+              className="nav-link"
+            >
+              {localStorage.getItem("Username") || auth?.user
+                ? "Logout"
+                : "Login"}
             </NavLink>
           </div>
         </div>

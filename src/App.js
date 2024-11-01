@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 // importation des composants page
 
 import Home from "./pages/home";
@@ -10,11 +10,10 @@ import Navbar from "./components/navbar";
 import NotFound from "./pages/notFoundPage";
 import ProductDetails from "./components/productDetails";
 
-import { AuthProvider, useAuth } from "./utils/auth";
+import { AuthProvider } from "./utils/auth";
 import { ProtectedRoute } from "./pages/protectedRoute";
 
 function App() {
-  const auth = useAuth();
   return (
     <>
       <AuthProvider>

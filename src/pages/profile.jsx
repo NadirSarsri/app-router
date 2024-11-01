@@ -6,7 +6,9 @@ const Profile = () => {
   return (
     <>
       <h2>Profile</h2>
-      <p className="lead">Welcome {auth.user} </p>
+      <p className="lead">
+        Welcome {localStorage.getItem("Username") || auth.user}{" "}
+      </p>
     </>
   );
 };
