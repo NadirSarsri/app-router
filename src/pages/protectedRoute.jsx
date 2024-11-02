@@ -4,6 +4,6 @@ import { Navigate } from "react-router-dom";
 
 export const ProtectedRoute = ({ children }) => {
   const auth = useAuth();
-  if (localStorage.getItem("Username") || auth.user) return children;
+  if (auth.user) return children;
   return <Navigate to="/login" replace="true" />;
 };
